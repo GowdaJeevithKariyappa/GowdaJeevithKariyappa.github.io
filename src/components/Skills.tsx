@@ -4,17 +4,17 @@ import { SectionHeading } from './SectionHeading';
 import { Code2, BrainCircuit, Layout, Database, Cpu, Wrench, Sparkles } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
-  Code2: <Code2 className="w-5 h-5 text-accent" />,
-  BrainCircuit: <BrainCircuit className="w-5 h-5 text-accentAlt" />,
-  Layout: <Layout className="w-5 h-5 text-accent" />,
-  Database: <Database className="w-5 h-5 text-accentAlt" />,
-  Cpu: <Cpu className="w-5 h-5 text-accent" />,
-  Wrench: <Wrench className="w-5 h-5 text-accentAlt" />,
+  Code2: <Code2 className="w-5 h-5 text-[#839958]" />,
+  BrainCircuit: <BrainCircuit className="w-5 h-5 text-[#D3968C]" />,
+  Layout: <Layout className="w-5 h-5 text-[#839958]" />,
+  Database: <Database className="w-5 h-5 text-[#D3968C]" />,
+  Cpu: <Cpu className="w-5 h-5 text-[#839958]" />,
+  Wrench: <Wrench className="w-5 h-5 text-[#D3968C]" />,
 };
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-20 md:py-28 border-t border-border relative">
+    <section id="skills" className="py-20 md:py-28 border-t border-[#F7F4D5]/15 bg-[#0A3323] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
@@ -25,10 +25,10 @@ export const Skills: React.FC = () => {
         />
 
         {/* Technical Philosophy Note */}
-        <div className="mb-10 p-4 rounded-xl bg-surface-card border border-border flex items-start gap-3">
-          <Sparkles className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-          <p className="text-xs text-text-secondary leading-relaxed font-sans">
-            <span className="text-text-primary font-semibold">Honest Engineering Standards:</span> I do not claim artificial 100% proficiency bars. 
+        <div className="mb-10 p-4 rounded-xl bg-[#105666] border border-[#F7F4D5]/15 flex items-start gap-3">
+          <Sparkles className="w-4 h-4 text-[#839958] shrink-0 mt-0.5" />
+          <p className="text-xs text-[#F7F4D5]/85 leading-relaxed font-sans">
+            <span className="text-[#F7F4D5] font-semibold">Honest Engineering Standards:</span> I do not claim artificial 100% proficiency bars. 
             The skills listed below represent technologies I actively write code in, use to construct systems, and understand from architectural fundamentals.
           </p>
         </div>
@@ -38,22 +38,22 @@ export const Skills: React.FC = () => {
           {skillCategories.map((category) => (
             <div
               key={category.id}
-              className="p-6 rounded-2xl bg-surface-card border border-border hover:border-accent/30 transition-all duration-300 flex flex-col justify-between group"
+              className="p-6 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 hover:border-[#839958] transition-all duration-300 flex flex-col justify-between group shadow-lg"
             >
               <div>
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-surface-elevated border border-border flex items-center justify-center group-hover:border-accent/40 transition-colors">
-                    {iconMap[category.iconName] || <Code2 className="w-5 h-5 text-accent" />}
+                  <div className="w-10 h-10 rounded-xl bg-[#0A3323] border border-[#F7F4D5]/15 flex items-center justify-center group-hover:border-[#839958] transition-colors">
+                    {iconMap[category.iconName] || <Code2 className="w-5 h-5 text-[#839958]" />}
                   </div>
                   <div>
-                    <h3 className="text-base font-heading font-bold text-text-primary">
+                    <h3 className="text-base font-heading font-bold text-[#F7F4D5]">
                       {category.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-xs text-text-muted leading-relaxed mb-6 font-sans">
+                <p className="text-xs text-[#F7F4D5]/70 leading-relaxed mb-6 font-sans">
                   {category.description}
                 </p>
 
@@ -64,8 +64,8 @@ export const Skills: React.FC = () => {
                       key={skill.name}
                       className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
                         skill.highlight
-                          ? 'bg-surface-elevated text-text-primary border border-border group-hover:border-accent/25'
-                          : 'bg-surface-card text-text-secondary border border-border/60'
+                          ? 'bg-[#0A3323] text-[#F7F4D5] border border-[#839958]/40 group-hover:border-[#839958]'
+                          : 'bg-[#0A3323]/60 text-[#F7F4D5]/75 border border-[#F7F4D5]/10'
                       }`}
                     >
                       {skill.name}
@@ -75,9 +75,9 @@ export const Skills: React.FC = () => {
               </div>
 
               {/* Bottom Subtle Indicator */}
-              <div className="pt-6 mt-6 border-t border-border/60 flex items-center justify-between text-[10px] font-mono text-text-muted">
+              <div className="pt-6 mt-6 border-t border-[#F7F4D5]/15 flex items-center justify-between text-[10px] font-mono text-[#F7F4D5]/60">
                 <span>{category.skills.length} core tools</span>
-                <span className="text-accent/60">applied in projects</span>
+                <span className="text-[#D3968C]">applied in projects</span>
               </div>
             </div>
           ))}

@@ -37,16 +37,16 @@ export const ProjectDetails: React.FC = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
-        <h2 className="text-3xl font-heading font-bold text-text-primary mb-4">
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center bg-[#0A3323] text-[#F7F4D5]">
+        <h2 className="text-3xl font-heading font-bold mb-4">
           Case Study Not Found
         </h2>
-        <p className="text-text-secondary mb-8 max-w-md">
+        <p className="text-[#F7F4D5]/70 mb-8 max-w-md font-sans">
           The project case study you requested could not be located or has not been published yet.
         </p>
         <Link
           to="/"
-          className="px-6 py-2.5 rounded-lg bg-accent text-background font-mono text-xs font-semibold hover:bg-accent-hover transition-all inline-flex items-center gap-2"
+          className="btn-primary px-6 py-2.5 rounded-lg text-xs inline-flex items-center gap-2"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Return to Portfolio</span>
@@ -61,23 +61,23 @@ export const ProjectDetails: React.FC = () => {
     setTimeout(() => setCopiedLink(false), 2000);
   };
 
-  // Evaluation Chart Data for FINsleuth
+  // Evaluation Chart Data for FINsleuth using the 5 approved colours
   const finsleuthChartData = [
-    { name: 'Behavioural ML Alone', precision: 15.68, recall: 7.64, f1: 10.19 },
-    { name: 'Pattern Risk Alone', precision: 2.30, recall: 14.20, f1: 3.96 },
-    { name: 'Structural Risk Alone', precision: 3.12, recall: 18.50, f1: 5.34 },
-    { name: 'Unified Three-Stream Fusion', precision: 33.79, recall: 23.06, f1: 27.39 },
+    { name: 'Behavioural ML', precision: 15.68, recall: 7.64, f1: 10.19 },
+    { name: 'Pattern Risk', precision: 2.30, recall: 14.20, f1: 3.96 },
+    { name: 'Structural Risk', precision: 3.12, recall: 18.50, f1: 5.34 },
+    { name: 'Unified LR Fusion', precision: 33.79, recall: 23.06, f1: 27.39 },
   ];
 
   return (
-    <article className="min-h-screen pt-24 pb-20 bg-[#090B0A] text-text-primary">
+    <article className="min-h-screen pt-24 pb-20 bg-[#0A3323] text-[#F7F4D5]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Navigation Breadcrumbs & Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#F7F4D5]/15 pb-6">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-xs font-mono text-text-secondary hover:text-accent transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono text-[#F7F4D5]/80 hover:text-[#839958] transition-colors font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>BACK TO ALL PROJECTS</span>
@@ -86,9 +86,9 @@ export const ProjectDetails: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card hover:bg-surface-elevated border border-border text-xs font-mono text-text-secondary hover:text-text-primary transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#105666]/40 hover:bg-[#105666] border border-[#F7F4D5]/20 text-xs font-mono text-[#F7F4D5] transition-all"
             >
-              {copiedLink ? <Check className="w-3.5 h-3.5 text-accent" /> : <Share2 className="w-3.5 h-3.5" />}
+              {copiedLink ? <Check className="w-3.5 h-3.5 text-[#839958]" /> : <Share2 className="w-3.5 h-3.5 text-[#D3968C]" />}
               <span>{copiedLink ? 'Link Copied' : 'Share Case Study'}</span>
             </button>
 
@@ -97,9 +97,9 @@ export const ProjectDetails: React.FC = () => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card hover:bg-surface-elevated border border-border text-xs font-mono text-text-primary transition-all"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A3323] hover:bg-[#062217] border border-[#F7F4D5]/20 text-xs font-mono text-[#F7F4D5] transition-all"
               >
-                <Github className="w-3.5 h-3.5" />
+                <Github className="w-3.5 h-3.5 text-[#839958]" />
                 <span>GitHub Source</span>
               </a>
             )}
@@ -109,7 +109,7 @@ export const ProjectDetails: React.FC = () => {
                 href={project.liveDemoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent text-background font-mono text-xs font-semibold hover:bg-accent-hover transition-all"
+                className="btn-primary inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span>Live Demo</span>
@@ -121,22 +121,22 @@ export const ProjectDetails: React.FC = () => {
         {/* Case Study Header */}
         <header className="space-y-6">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="px-3 py-1 rounded-full bg-surface-card border border-border text-xs font-mono text-accent">
+            <span className="px-3 py-1 rounded-full bg-[#105666] border border-[#D3968C]/40 text-xs font-mono text-[#D3968C] font-semibold">
               {project.badge}
             </span>
-            <span className="text-xs font-mono text-text-muted">
+            <span className="text-xs font-mono text-[#F7F4D5]/70">
               {project.category}
             </span>
-            <span className="text-xs font-mono px-2 py-0.5 rounded bg-surface-elevated text-text-muted border border-border">
+            <span className="text-xs font-mono px-2 py-0.5 rounded bg-[#0A3323] text-[#839958] border border-[#839958]/30 font-semibold">
               STATUS: {project.deploymentStatus.toUpperCase().replace('_', ' ')}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-heading font-bold text-text-primary tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-heading font-bold text-[#F7F4D5] tracking-tight leading-tight">
             {project.fullTitle}
           </h1>
 
-          <p className="text-lg sm:text-xl text-text-secondary leading-relaxed max-w-4xl font-sans">
+          <p className="text-lg sm:text-xl text-[#F7F4D5]/85 leading-relaxed max-w-4xl font-sans">
             {project.summary}
           </p>
 
@@ -144,15 +144,15 @@ export const ProjectDetails: React.FC = () => {
           {project.metrics && project.metrics.length > 0 && (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-4">
               {project.metrics.map((metric, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-surface-card border border-border">
-                  <div className="text-[11px] font-mono text-text-muted uppercase truncate">
+                <div key={idx} className="p-4 rounded-xl bg-[#105666] border border-[#F7F4D5]/15 shadow-md">
+                  <div className="text-[11px] font-mono text-[#D3968C] uppercase truncate font-semibold">
                     {metric.label}
                   </div>
-                  <div className="text-xl sm:text-2xl font-mono font-bold text-accent mt-1">
+                  <div className="text-xl sm:text-2xl font-mono font-bold text-[#839958] mt-1">
                     {metric.value}
                   </div>
                   {metric.detail && (
-                    <div className="text-[11px] text-text-secondary mt-1 font-sans">
+                    <div className="text-[11px] text-[#F7F4D5]/75 mt-1 font-sans">
                       {metric.detail}
                     </div>
                   )}
@@ -166,7 +166,7 @@ export const ProjectDetails: React.FC = () => {
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 rounded-lg bg-surface-card border border-border text-xs font-mono text-text-secondary"
+                className="px-3 py-1 rounded-lg bg-[#0A3323] border border-[#839958]/30 text-xs font-mono text-[#839958]"
               >
                 {tech}
               </span>
@@ -175,20 +175,20 @@ export const ProjectDetails: React.FC = () => {
         </header>
 
         {/* Hero Image / Platform Architecture Visual */}
-        <div className="rounded-2xl overflow-hidden border border-border bg-surface-card shadow-2xl">
+        <div className="rounded-2xl overflow-hidden border border-[#F7F4D5]/15 bg-[#105666] shadow-2xl">
           <img
             src={project.heroImage}
             alt={`${project.title} Interface`}
             className="w-full object-cover max-h-[550px] object-top"
           />
-          <div className="p-4 border-t border-border bg-[#090B0A]/80 flex items-center justify-between text-xs font-mono text-text-muted">
+          <div className="p-4 border-t border-[#F7F4D5]/15 bg-[#0A3323] flex items-center justify-between text-xs font-mono text-[#F7F4D5]/75">
             <span>Primary Visual Artifact &bull; {project.title} Architecture & UI</span>
-            <span className="text-accent">Verified Engineering Evidence</span>
+            <span className="text-[#839958] font-semibold">Verified Engineering Evidence</span>
           </div>
         </div>
 
         {/* Content Navigation Tabs */}
-        <div className="flex border-b border-border overflow-x-auto gap-2">
+        <div className="flex border-b border-[#F7F4D5]/15 overflow-x-auto gap-2">
           {[
             { id: 'overview', label: '01. Problem & Motivation' },
             { id: 'architecture', label: '02. Architecture & Pipeline' },
@@ -200,8 +200,8 @@ export const ProjectDetails: React.FC = () => {
               onClick={() => setActiveTab(tab.id as any)}
               className={`px-4 py-3 text-xs font-mono whitespace-nowrap transition-all border-b-2 -mb-[1px] ${
                 activeTab === tab.id
-                  ? 'border-accent text-accent font-semibold'
-                  : 'border-transparent text-text-secondary hover:text-text-primary'
+                  ? 'border-[#839958] text-[#839958] font-bold'
+                  : 'border-transparent text-[#F7F4D5]/70 hover:text-[#F7F4D5]'
               }`}
             >
               {tab.label}
@@ -214,26 +214,26 @@ export const ProjectDetails: React.FC = () => {
           <section className="space-y-10 animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               
-              <div className="p-8 rounded-2xl bg-surface-card border border-border space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-surface-elevated border border-border flex items-center justify-center text-red-400">
+              <div className="p-8 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-4 shadow-xl">
+                <div className="w-10 h-10 rounded-xl bg-[#0A3323] border border-[#D3968C]/40 flex items-center justify-center text-[#D3968C]">
                   <AlertTriangle className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-heading font-bold text-text-primary">
+                <h3 className="text-xl font-heading font-bold text-[#F7F4D5]">
                   The Problem Statement
                 </h3>
-                <p className="text-sm text-text-secondary leading-relaxed font-sans">
+                <p className="text-sm text-[#F7F4D5]/85 leading-relaxed font-sans">
                   {project.problemStatement}
                 </p>
               </div>
 
-              <div className="p-8 rounded-2xl bg-surface-card border border-border space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-surface-elevated border border-border flex items-center justify-center text-accent">
+              <div className="p-8 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-4 shadow-xl">
+                <div className="w-10 h-10 rounded-xl bg-[#0A3323] border border-[#839958]/40 flex items-center justify-center text-[#839958]">
                   <Compass className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-heading font-bold text-text-primary">
+                <h3 className="text-xl font-heading font-bold text-[#F7F4D5]">
                   Engineering Motivation
                 </h3>
-                <p className="text-sm text-text-secondary leading-relaxed font-sans">
+                <p className="text-sm text-[#F7F4D5]/85 leading-relaxed font-sans">
                   {project.motivation}
                 </p>
               </div>
@@ -243,14 +243,14 @@ export const ProjectDetails: React.FC = () => {
             {/* Gallery Screenshots */}
             {project.galleryImages && project.galleryImages.length > 0 && (
               <div className="space-y-4">
-                <h3 className="text-xl font-heading font-bold text-text-primary">
+                <h3 className="text-xl font-heading font-bold text-[#F7F4D5]">
                   Forensic Visual Artifacts
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {project.galleryImages.map((img, idx) => (
-                    <div key={idx} className="rounded-xl border border-border bg-surface-card overflow-hidden">
+                    <div key={idx} className="rounded-xl border border-[#F7F4D5]/15 bg-[#105666] overflow-hidden shadow-lg">
                       <img src={img.url} alt={img.caption} className="w-full h-64 object-cover object-top" />
-                      <div className="p-3 bg-surface-elevated border-t border-border text-xs font-mono text-text-secondary">
+                      <div className="p-3 bg-[#0A3323] border-t border-[#F7F4D5]/15 text-xs font-mono text-[#F7F4D5]/80">
                         {img.caption}
                       </div>
                     </div>
@@ -264,12 +264,12 @@ export const ProjectDetails: React.FC = () => {
         {/* Tab 2: Architecture & Pipeline */}
         {activeTab === 'architecture' && (
           <section className="space-y-10 animate-fade-in">
-            <div className="p-8 rounded-2xl bg-surface-card border border-border space-y-4">
-              <h3 className="text-xl font-heading font-bold text-text-primary flex items-center gap-2">
-                <Layers className="w-5 h-5 text-accent" />
+            <div className="p-8 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-4 shadow-xl">
+              <h3 className="text-xl font-heading font-bold text-[#F7F4D5] flex items-center gap-2">
+                <Layers className="w-5 h-5 text-[#839958]" />
                 <span>Architecture Summary</span>
               </h3>
-              <p className="text-base text-text-secondary leading-relaxed font-sans">
+              <p className="text-base text-[#F7F4D5]/85 leading-relaxed font-sans">
                 {project.architectureSummary}
               </p>
             </div>
@@ -277,12 +277,12 @@ export const ProjectDetails: React.FC = () => {
             {/* Architecture Points */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {project.architecturePoints.map((point, idx) => (
-                <div key={idx} className="p-6 rounded-2xl bg-surface-card border border-border space-y-2">
-                  <div className="text-xs font-mono text-accent">STREAM 0{idx + 1}</div>
-                  <h4 className="text-base font-heading font-bold text-text-primary">
+                <div key={idx} className="p-6 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-2 shadow-lg">
+                  <div className="text-xs font-mono text-[#D3968C] font-semibold">STREAM 0{idx + 1}</div>
+                  <h4 className="text-base font-heading font-bold text-[#F7F4D5]">
                     {point.title}
                   </h4>
-                  <p className="text-xs text-text-secondary leading-relaxed font-sans">
+                  <p className="text-xs text-[#F7F4D5]/80 leading-relaxed font-sans">
                     {point.description}
                   </p>
                 </div>
@@ -292,19 +292,19 @@ export const ProjectDetails: React.FC = () => {
             {/* Technical Detail Breakdowns */}
             {project.technicalDetails && (
               <div className="space-y-6">
-                <h3 className="text-xl font-heading font-bold text-text-primary">
+                <h3 className="text-xl font-heading font-bold text-[#F7F4D5]">
                   Implementation Specifications
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {project.technicalDetails.map((detail, idx) => (
-                    <div key={idx} className="p-6 rounded-2xl bg-surface-card border border-border space-y-3">
-                      <h4 className="text-sm font-heading font-bold text-accent">
+                    <div key={idx} className="p-6 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-3 shadow-lg">
+                      <h4 className="text-sm font-heading font-bold text-[#839958]">
                         {detail.title}
                       </h4>
                       <ul className="space-y-2">
                         {detail.content.map((c, cIdx) => (
-                          <li key={cIdx} className="text-xs text-text-secondary leading-relaxed flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1 shrink-0" />
+                          <li key={cIdx} className="text-xs text-[#F7F4D5]/80 leading-relaxed flex items-start gap-2 font-sans">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#839958] mt-1 shrink-0" />
                             <span>{c}</span>
                           </li>
                         ))}
@@ -320,16 +320,16 @@ export const ProjectDetails: React.FC = () => {
         {/* Tab 3: Empirical Evaluation */}
         {activeTab === 'evaluation' && (
           <section className="space-y-10 animate-fade-in">
-            <div className="p-8 rounded-2xl bg-surface-card border border-border space-y-4">
-              <h3 className="text-xl font-heading font-bold text-text-primary flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-accentAlt" />
+            <div className="p-8 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-4 shadow-xl">
+              <h3 className="text-xl font-heading font-bold text-[#F7F4D5] flex items-center gap-2">
+                <BarChart3 className="w-5 h-5 text-[#839958]" />
                 <span>Evaluation Protocol & Methodology</span>
               </h3>
-              <p className="text-sm text-text-secondary leading-relaxed font-sans">
+              <p className="text-sm text-[#F7F4D5]/85 leading-relaxed font-sans">
                 {project.evaluation.methodology}
               </p>
               {project.evaluation.splits && (
-                <div className="p-3 rounded-lg bg-surface-elevated border border-border text-xs font-mono text-accent">
+                <div className="p-3 rounded-lg bg-[#0A3323] border border-[#839958]/30 text-xs font-mono text-[#839958] font-semibold">
                   PARTITION SPLITS: {project.evaluation.splits}
                 </div>
               )}
@@ -337,27 +337,27 @@ export const ProjectDetails: React.FC = () => {
 
             {/* FINsleuth Interactive Comparison Chart */}
             {project.id === 'finsleuth' && (
-              <div className="p-8 rounded-2xl bg-surface-card border border-border space-y-4">
+              <div className="p-8 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-4 shadow-xl">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-base font-heading font-bold text-text-primary">
+                  <h4 className="text-base font-heading font-bold text-[#F7F4D5]">
                     4-Model Comparative Metrics (Untouched Test Split)
                   </h4>
-                  <span className="text-xs font-mono text-text-muted">Percentages (%)</span>
+                  <span className="text-xs font-mono text-[#F7F4D5]/70">Percentages (%)</span>
                 </div>
 
                 <div className="h-80 w-full pt-4">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={finsleuthChartData} margin={{ top: 10, right: 30, left: 0, bottom: 25 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#252D28" />
-                      <XAxis dataKey="name" stroke="#9BA69D" tick={{ fontSize: 11 }} interval={0} angle={-10} textAnchor="end" />
-                      <YAxis stroke="#9BA69D" tick={{ fontSize: 11 }} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(247, 244, 213, 0.1)" />
+                      <XAxis dataKey="name" stroke="#F7F4D5" tick={{ fontSize: 11 }} interval={0} angle={-10} textAnchor="end" />
+                      <YAxis stroke="#F7F4D5" tick={{ fontSize: 11 }} />
                       <Tooltip
-                        contentStyle={{ backgroundColor: '#141A16', borderColor: '#252D28', borderRadius: '8px', color: '#F3F5F2', fontSize: '12px' }}
+                        contentStyle={{ backgroundColor: '#0A3323', borderColor: '#839958', borderRadius: '8px', color: '#F7F4D5', fontSize: '12px' }}
                       />
-                      <Legend wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }} />
-                      <Bar dataKey="precision" name="Precision (%)" fill="#B5F36A" radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="recall" name="Recall (%)" fill="#75D6A0" radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="f1" name="F1-Score (%)" fill="#3B82F6" radius={[4, 4, 0, 0]} />
+                      <Legend wrapperStyle={{ paddingTop: '20px', fontSize: '12px', color: '#F7F4D5' }} />
+                      <Bar dataKey="precision" name="Precision (%)" fill="#839958" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="recall" name="Recall (%)" fill="#D3968C" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="f1" name="F1-Score (%)" fill="#F7F4D5" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -366,19 +366,19 @@ export const ProjectDetails: React.FC = () => {
 
             {/* Evaluation Results Table */}
             {project.evaluation.resultsTable && (
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface-card">
+              <div className="rounded-2xl border border-[#F7F4D5]/15 overflow-hidden bg-[#105666] shadow-xl">
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse">
                     <thead>
-                      <tr className="border-b border-border bg-surface-elevated text-xs font-mono text-text-muted">
+                      <tr className="border-b border-[#F7F4D5]/15 bg-[#0A3323] text-xs font-mono text-[#D3968C] font-semibold">
                         {project.evaluation.resultsTable.headers.map((h, idx) => (
                           <th key={idx} className="p-4">{h}</th>
                         ))}
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-border/60 text-xs font-mono">
+                    <tbody className="divide-y divide-[#F7F4D5]/10 text-xs font-mono">
                       {project.evaluation.resultsTable.rows.map((row, rIdx) => (
-                        <tr key={rIdx} className={rIdx === project.evaluation.resultsTable!.rows.length - 1 ? 'bg-accent/5 font-semibold text-accent' : 'text-text-secondary'}>
+                        <tr key={rIdx} className={rIdx === project.evaluation.resultsTable!.rows.length - 1 ? 'bg-[#0A3323]/90 font-semibold text-[#839958]' : 'text-[#F7F4D5]/80'}>
                           {row.map((cell, cIdx) => (
                             <td key={cIdx} className="p-4">{cell}</td>
                           ))}
@@ -398,16 +398,16 @@ export const ProjectDetails: React.FC = () => {
             
             {/* Challenges Overcome */}
             <div className="space-y-4">
-              <h3 className="text-xl font-heading font-bold text-text-primary">
+              <h3 className="text-xl font-heading font-bold text-[#F7F4D5]">
                 Technical Challenges & Solutions
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {project.challenges.map((c, idx) => (
-                  <div key={idx} className="p-6 rounded-2xl bg-surface-card border border-border space-y-2">
-                    <h4 className="text-sm font-heading font-bold text-text-primary">
+                  <div key={idx} className="p-6 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-2 shadow-lg">
+                    <h4 className="text-sm font-heading font-bold text-[#F7F4D5]">
                       {c.title}
                     </h4>
-                    <p className="text-xs text-text-secondary leading-relaxed font-sans">
+                    <p className="text-xs text-[#F7F4D5]/80 leading-relaxed font-sans">
                       {c.description}
                     </p>
                   </div>
@@ -417,17 +417,17 @@ export const ProjectDetails: React.FC = () => {
 
             {/* Architectural Trade-offs & Decisions */}
             <div className="space-y-4">
-              <h3 className="text-xl font-heading font-bold text-text-primary">
+              <h3 className="text-xl font-heading font-bold text-[#F7F4D5]">
                 Engineering Trade-Offs & Decisions
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {project.engineeringDecisions.map((dec, idx) => (
-                  <div key={idx} className="p-6 rounded-2xl bg-surface-card border border-border space-y-2">
-                    <div className="text-xs font-mono text-accent">DECISION 0{idx + 1}</div>
-                    <h4 className="text-base font-heading font-bold text-text-primary">
+                  <div key={idx} className="p-6 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-2 shadow-lg">
+                    <div className="text-xs font-mono text-[#D3968C] font-semibold">DECISION 0{idx + 1}</div>
+                    <h4 className="text-base font-heading font-bold text-[#F7F4D5]">
                       {dec.decision}
                     </h4>
-                    <p className="text-xs text-text-secondary leading-relaxed font-sans">
+                    <p className="text-xs text-[#F7F4D5]/80 leading-relaxed font-sans">
                       {dec.rationale}
                     </p>
                   </div>
@@ -438,30 +438,30 @@ export const ProjectDetails: React.FC = () => {
             {/* Limitations & Future Improvements */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
               
-              <div className="p-6 rounded-2xl bg-surface-card border border-border space-y-3">
-                <h4 className="text-base font-heading font-bold text-red-400 flex items-center gap-2">
+              <div className="p-6 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-3 shadow-lg">
+                <h4 className="text-base font-heading font-bold text-[#D3968C] flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4" />
                   <span>Current Limitations</span>
                 </h4>
                 <ul className="space-y-2">
                   {project.limitations.map((lim, idx) => (
-                    <li key={idx} className="text-xs text-text-secondary leading-relaxed flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-400/60 mt-1 shrink-0" />
+                    <li key={idx} className="text-xs text-[#F7F4D5]/80 leading-relaxed flex items-start gap-2 font-sans">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D3968C] mt-1 shrink-0" />
                       <span>{lim}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="p-6 rounded-2xl bg-surface-card border border-border space-y-3">
-                <h4 className="text-base font-heading font-bold text-accent flex items-center gap-2">
+              <div className="p-6 rounded-2xl bg-[#105666] border border-[#F7F4D5]/15 space-y-3 shadow-lg">
+                <h4 className="text-base font-heading font-bold text-[#839958] flex items-center gap-2">
                   <TrendingUp className="w-4 h-4" />
                   <span>Future Roadmap</span>
                 </h4>
                 <ul className="space-y-2">
                   {project.futureImprovements.map((imp, idx) => (
-                    <li key={idx} className="text-xs text-text-secondary leading-relaxed flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1 shrink-0" />
+                    <li key={idx} className="text-xs text-[#F7F4D5]/80 leading-relaxed flex items-start gap-2 font-sans">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#839958] mt-1 shrink-0" />
                       <span>{imp}</span>
                     </li>
                   ))}
@@ -474,10 +474,10 @@ export const ProjectDetails: React.FC = () => {
         )}
 
         {/* Bottom Back Button */}
-        <div className="pt-8 border-t border-border flex items-center justify-between">
+        <div className="pt-8 border-t border-[#F7F4D5]/15 flex items-center justify-between">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-surface-card hover:bg-surface-elevated border border-border text-xs font-mono text-text-primary transition-all"
+            className="btn-secondary inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to All Projects</span>
@@ -488,7 +488,7 @@ export const ProjectDetails: React.FC = () => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-background font-mono text-xs font-semibold hover:bg-accent-hover transition-all"
+              className="btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs"
             >
               <Github className="w-4 h-4" />
               <span>Inspect Repository Code</span>

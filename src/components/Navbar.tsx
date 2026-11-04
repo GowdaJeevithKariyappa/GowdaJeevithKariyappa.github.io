@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#090B0A]/85 backdrop-blur-md border-b border-border py-3 shadow-lg shadow-black/30'
+          ? 'bg-[#0A3323]/90 backdrop-blur-md border-b border-[#F7F4D5]/15 py-3 shadow-lg shadow-[#062217]/50'
           : 'bg-transparent py-5'
       }`}
     >
@@ -60,24 +60,24 @@ export const Navbar: React.FC = () => {
           {/* Logo / Monogram */}
           <button
             onClick={() => handleNavClick('hero')}
-            className="flex items-center gap-2 group text-left focus:outline-none focus:ring-2 focus:ring-accent/50 rounded-lg p-1"
+            className="flex items-center gap-2.5 group text-left focus:outline-none focus:ring-2 focus:ring-[#839958]/50 rounded-lg p-1"
             aria-label="Navigate to homepage"
           >
-            <div className="w-9 h-9 rounded-lg bg-surface-card border border-border flex items-center justify-center font-mono font-bold text-sm text-text-primary group-hover:border-accent transition-colors">
-              <span className="text-accent">G</span>JK
+            <div className="w-9 h-9 rounded-lg bg-[#105666] border border-[#839958]/40 flex items-center justify-center font-mono font-bold text-sm text-[#F7F4D5] group-hover:border-[#839958] transition-colors shadow-sm">
+              <span className="text-[#839958]">G</span>JK
             </div>
             <div className="hidden sm:block">
-              <span className="text-sm font-semibold tracking-tight text-text-primary group-hover:text-accent transition-colors block leading-tight">
+              <span className="text-sm font-semibold tracking-tight text-[#F7F4D5] group-hover:text-[#839958] transition-colors block leading-tight">
                 Gowda Jeevith K.
               </span>
-              <span className="text-[11px] font-mono text-text-muted block leading-tight">
+              <span className="text-[11px] font-mono text-[#F7F4D5]/60 block leading-tight">
                 Software & AI/ML
               </span>
             </div>
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 bg-surface-card/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-border">
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 bg-[#0A3323]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#F7F4D5]/15">
             {navItems.map((item) => {
               const isActive = isHomePage && activeSection === item.id;
               return (
@@ -86,8 +86,8 @@ export const Navbar: React.FC = () => {
                   onClick={() => handleNavClick(item.id)}
                   className={`px-3 py-1.5 text-xs font-mono tracking-wider transition-all rounded-full relative ${
                     isActive
-                      ? 'text-accent font-semibold bg-accent/10 border border-accent/25'
-                      : 'text-text-secondary hover:text-text-primary hover:bg-surface-elevated'
+                      ? 'text-[#0A3323] font-bold bg-[#839958] shadow-sm'
+                      : 'text-[#F7F4D5]/80 hover:text-[#F7F4D5] hover:bg-[#105666]/40'
                   }`}
                 >
                   {item.label}
@@ -103,7 +103,7 @@ export const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="w-9 h-9 rounded-lg bg-surface-card border border-border flex items-center justify-center text-text-secondary hover:text-text-primary hover:border-accent/40 hover:bg-surface-elevated transition-all"
+              className="w-9 h-9 rounded-lg bg-[#0A3323] border border-[#F7F4D5]/15 flex items-center justify-center text-[#F7F4D5]/80 hover:text-[#F7F4D5] hover:border-[#839958] hover:bg-[#105666]/30 transition-all"
             >
               <Github className="w-4 h-4" />
             </a>
@@ -112,21 +112,21 @@ export const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="w-9 h-9 rounded-lg bg-surface-card border border-border flex items-center justify-center text-text-secondary hover:text-[#75D6A0] hover:border-[#75D6A0]/40 hover:bg-surface-elevated transition-all"
+              className="w-9 h-9 rounded-lg bg-[#0A3323] border border-[#F7F4D5]/15 flex items-center justify-center text-[#F7F4D5]/80 hover:text-[#D3968C] hover:border-[#D3968C] hover:bg-[#105666]/30 transition-all"
             >
               <Linkedin className="w-4 h-4" />
             </a>
 
-            {/* Resume Button: Rendered only when resumeUrl is present and configured */}
+            {/* Resume Button: Moss Green background with Dark Green text */}
             {profile.resumeUrl && (
               <a
                 href={profile.resumeUrl}
                 download="Gowda_Jeevith_Kariyappa_Resume.pdf"
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-accent text-background font-mono text-xs font-semibold hover:bg-accent-hover transition-all shadow-sm"
+                className="btn-primary flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold shadow-sm"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Resume</span>
-                <ArrowUpRight className="w-3 h-3 opacity-70" />
+                <ArrowUpRight className="w-3 h-3 opacity-80" />
               </a>
             )}
           </div>
@@ -137,14 +137,14 @@ export const Navbar: React.FC = () => {
               <a
                 href={profile.resumeUrl}
                 download="Gowda_Jeevith_Kariyappa_Resume.pdf"
-                className="px-2.5 py-1 rounded bg-accent text-background font-mono text-xs font-semibold"
+                className="btn-primary px-2.5 py-1 rounded text-xs font-semibold"
               >
                 Resume
               </a>
             )}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-10 h-10 rounded-lg bg-surface-card border border-border flex items-center justify-center text-text-primary focus:outline-none"
+              className="w-10 h-10 rounded-lg bg-[#0A3323] border border-[#F7F4D5]/20 flex items-center justify-center text-[#F7F4D5] focus:outline-none"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -155,7 +155,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#090B0A]/95 backdrop-blur-xl border-b border-border px-4 pt-3 pb-6 animate-fade-in">
+        <div className="md:hidden bg-[#0A3323]/98 backdrop-blur-xl border-b border-[#F7F4D5]/15 px-4 pt-3 pb-6 animate-fade-in">
           <div className="flex flex-col space-y-2 mb-4">
             {navItems.map((item) => (
               <button
@@ -163,8 +163,8 @@ export const Navbar: React.FC = () => {
                 onClick={() => handleNavClick(item.id)}
                 className={`text-left px-3 py-2 text-sm font-mono tracking-wider rounded-lg transition-colors ${
                   activeSection === item.id
-                    ? 'text-accent bg-accent/10 border border-accent/25'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-surface-card'
+                    ? 'text-[#0A3323] bg-[#839958] font-bold'
+                    : 'text-[#F7F4D5]/80 hover:text-[#F7F4D5] hover:bg-[#105666]/30'
                 }`}
               >
                 {item.label}
@@ -172,12 +172,12 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <div className="pt-3 border-t border-border flex items-center gap-3">
+          <div className="pt-3 border-t border-[#F7F4D5]/15 flex items-center gap-3">
             <a
               href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-surface-card border border-border text-xs font-mono text-text-primary"
+              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-[#105666]/30 border border-[#F7F4D5]/15 text-xs font-mono text-[#F7F4D5]"
             >
               <Github className="w-4 h-4" />
               <span>GitHub</span>
@@ -186,9 +186,9 @@ export const Navbar: React.FC = () => {
               href={profile.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-surface-card border border-border text-xs font-mono text-text-primary"
+              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-[#105666]/30 border border-[#F7F4D5]/15 text-xs font-mono text-[#F7F4D5]"
             >
-              <Linkedin className="w-4 h-4 text-[#75D6A0]" />
+              <Linkedin className="w-4 h-4 text-[#D3968C]" />
               <span>LinkedIn</span>
             </a>
           </div>

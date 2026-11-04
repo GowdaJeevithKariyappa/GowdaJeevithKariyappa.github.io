@@ -4,77 +4,109 @@
 
 @layer base {
   :root {
-    --bg-main: #090B0A;
-    --bg-secondary: #101411;
-    --bg-card: #141A16;
-    --text-primary: #F3F5F2;
-    --text-secondary: #9BA69D;
-    --accent: #B5F36A;
-    --accent-alt: #75D6A0;
-    --border: #252D28;
+    /* The 5 Final Approved Botanical Editorial Colours */
+    --color-dark-green: #0A3323;
+    --color-moss-green: #839958;
+    --color-beige: #F7F4D5;
+    --color-rosy-brown: #D3968C;
+    --color-midnight-green: #105666;
   }
 
   html {
     color-scheme: dark;
-    background-color: #090B0A;
-    color: #F3F5F2;
+    background-color: #0A3323;
+    color: #F7F4D5;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
   body {
-    background-color: #090B0A;
-    color: #F3F5F2;
+    background-color: #0A3323;
+    color: #F7F4D5;
     overflow-x: hidden;
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar styled with Dark Green and Midnight Green */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #090B0A;
+    background: #0A3323;
   }
   ::-webkit-scrollbar-thumb {
-    background: #252D28;
+    background: #105666;
     border-radius: 4px;
+    border: 1px solid rgba(247, 244, 213, 0.1);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3A473F;
+    background: #839958;
   }
 }
 
-/* Subtle Technical Grid Background */
+/* Subtle Botanical & Technical Grid Background */
 .bg-tech-grid {
-  background-size: 36px 36px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(37, 45, 40, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(37, 45, 40, 0.35) 1px, transparent 1px);
+    linear-gradient(to right, rgba(247, 244, 213, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(247, 244, 213, 0.04) 1px, transparent 1px);
 }
 
 .bg-tech-dots {
-  background-image: radial-gradient(rgba(181, 243, 106, 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(131, 153, 88, 0.2) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-/* Engineering Accent Border */
-.border-accent-gradient {
-  border-image: linear-gradient(to bottom right, rgba(181, 243, 106, 0.4), rgba(117, 214, 160, 0.1), transparent) 1;
-}
-
-/* Glass Card */
+/* Botanical Editorial Glass Panel */
 .glass-panel {
-  background: rgba(20, 26, 22, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #252D28;
+  background: rgba(10, 51, 35, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(247, 244, 213, 0.14);
 }
 
 .glass-panel:hover {
-  border-color: rgba(181, 243, 106, 0.3);
+  border-color: rgba(131, 153, 88, 0.4);
 }
 
-/* Shimmer / subtle glow */
-.accent-glow-sm {
-  box-shadow: 0 0 20px -5px rgba(181, 243, 106, 0.18);
+/* Midnight Green Elevated Card */
+.midnight-card {
+  background-color: #105666;
+  border: 1px solid rgba(247, 244, 213, 0.18);
+  color: #F7F4D5;
+}
+
+.midnight-card:hover {
+  border-color: #839958;
+}
+
+/* Primary Button Design Rule:
+   Moss Green background with Dark Green text */
+.btn-primary {
+  background-color: #839958;
+  color: #0A3323;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #95AC66;
+  color: #07261A;
+}
+
+/* Secondary Button Design Rule:
+   Transparent background with Beige border and Beige text */
+.btn-secondary {
+  background-color: transparent;
+  color: #F7F4D5;
+  border: 1px solid rgba(247, 244, 213, 0.4);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #839958;
+  color: #F7F4D5;
+  background-color: rgba(131, 153, 88, 0.15);
 }

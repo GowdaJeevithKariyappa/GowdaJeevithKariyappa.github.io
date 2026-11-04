@@ -9,7 +9,7 @@ import { NotFound } from './pages/NotFound';
 export const App: React.FC = () => {
   return (
     <HashRouter>
-      <div className="min-h-screen bg-[#090B0A] text-[#F3F5F2] flex flex-col selection:bg-accent/20 selection:text-accent">
+      <div className="min-h-screen bg-[#0A3323] text-[#F7F4D5] flex flex-col selection:bg-[#839958]/30 selection:text-[#F7F4D5]">
         <Navbar />
         <div className="flex-1">
           <Routes>
